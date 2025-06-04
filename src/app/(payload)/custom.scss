@@ -1,0 +1,13 @@
+#nav-group-Collections {
+  display: none;
+}
+
+#nav-group-Globals {
+  display: none;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}

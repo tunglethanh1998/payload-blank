@@ -9,18 +9,28 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Posts } from './collections/Posts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      views: {
+        customView: {
+          Component: '@/components/CustomView',
+          path: '/my-custom-view',
+        },
+      },
+      afterNavLinks: ['@/components/AfterNavLinks'],
+    },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Posts],
+  globals: [],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
