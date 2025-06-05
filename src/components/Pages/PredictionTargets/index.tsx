@@ -3,6 +3,7 @@ import type { AdminViewServerProps } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 import React from 'react'
+import { Checkbox } from '@/components/Common/Checkbox'
 
 const PredictionTarget = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
@@ -17,7 +18,8 @@ const PredictionTarget = ({ initPageResult, params, searchParams }: AdminViewSer
       visibleEntities={initPageResult.visibleEntities}
     >
       <Gutter>
-        <h1>PREDICTION TARGET RACE LIST for Admin</h1>
+        <h1 className="">PREDICTION TARGET RACE LIST for Admin</h1>
+        <Checkbox id="1" />
       </Gutter>
     </DefaultTemplate>
   )
