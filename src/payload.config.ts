@@ -10,6 +10,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
+import { ROUTE } from './libs/enums'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,9 +22,13 @@ export default buildConfig({
     },
     components: {
       views: {
-        customView: {
-          Component: '@/components/CustomView',
-          path: '/my-custom-view',
+        raceList: {
+          Component: '@/components/Pages/RaceList',
+          path: ROUTE.RACE_LIST,
+        },
+        predictionTargets: {
+          Component: '@/components/Pages/PredictionTargets',
+          path: ROUTE.PREDICTION_TARGET,
         },
       },
       afterNavLinks: ['@/components/AfterNavLinks'],

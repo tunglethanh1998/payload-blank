@@ -4,7 +4,7 @@ import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 import React from 'react'
 
-const MyCustomView = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
+const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
     <DefaultTemplate
       i18n={initPageResult.req.i18n}
@@ -17,11 +17,10 @@ const MyCustomView = ({ initPageResult, params, searchParams }: AdminViewServerP
       visibleEntities={initPageResult.visibleEntities}
     >
       <Gutter>
-        <h1>Custom Default Root View</h1>
-        <p>This view uses the Default Template.</p>
+        <h1>Race List</h1>
       </Gutter>
     </DefaultTemplate>
   )
 }
 
-export default MyCustomView
+export default RaceList

@@ -1,3 +1,4 @@
+import { ROUTE } from '@/libs/enums'
 import { Link } from '@payloadcms/ui'
 import React from 'react'
 
@@ -20,9 +21,8 @@ const sidebarGroups = [
   {
     label: 'Custom View',
     links: [
-      { label: 'Custom view 1', href: '/admin/my-custom-view' },
-      { label: 'Custom view 2', href: '/admin/my-custom-view' },
-      { label: 'Custom view 3', href: '/admin/my-custom-view' },
+      { label: 'Race List', href: `/admin/${ROUTE.RACE_LIST}` },
+      { label: 'Prediction Targets', href: `/admin/${ROUTE.PREDICTION_TARGET}` },
     ],
   },
 ]
