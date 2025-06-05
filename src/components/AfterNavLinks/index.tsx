@@ -20,9 +20,9 @@ const sidebarGroups = [
   {
     label: 'Custom View',
     links: [
-      { label: 'Custom view 1', href: '/admin/collections/media?limit=10' },
-      { label: 'Custom view 2', href: '/admin/collections/posts?limit=10' },
-      { label: 'Custom view 3', href: '/admin/collections/users?limit=10' },
+      { label: 'Custom view 1', href: '/admin/my-custom-view' },
+      { label: 'Custom view 2', href: '/admin/my-custom-view' },
+      { label: 'Custom view 3', href: '/admin/my-custom-view' },
     ],
   },
 ]
