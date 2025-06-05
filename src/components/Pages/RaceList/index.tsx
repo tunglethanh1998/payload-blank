@@ -3,6 +3,7 @@ import type { AdminViewServerProps } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 import React from 'react'
+import MyCustomForm from '@/components/Common/CustomForm'
 
 const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
@@ -17,7 +18,7 @@ const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps
       visibleEntities={initPageResult.visibleEntities}
     >
       <Gutter>
-        <h1>Race List</h1>
+        <MyCustomForm />
       </Gutter>
     </DefaultTemplate>
   )
