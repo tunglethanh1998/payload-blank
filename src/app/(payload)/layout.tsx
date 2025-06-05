@@ -9,6 +9,7 @@ import React from 'react'
 import { importMap } from './admin/importMap.js'
 import { ThemeProvider } from '@payloadcms/ui'
 import './custom.scss'
+import '@/styles/globals.css'
 
 type Args = {
   children: React.ReactNode
