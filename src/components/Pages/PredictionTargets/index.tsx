@@ -19,7 +19,7 @@ const PredictionTarget = ({ initPageResult, params, searchParams }: AdminViewSer
     >
       <Gutter>
         <h1 className="">PREDICTION TARGET RACE LIST for Admin</h1>
-        <Checkbox id="1" />
+        <Checkbox />
       </Gutter>
     </DefaultTemplate>
   )
