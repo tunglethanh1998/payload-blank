@@ -1,6 +1,7 @@
 'use client'
 
 import StatusField from '@/components/Common/StatusField'
+import { renderCells } from '@/libs/utils'
 import { Pagination, Table } from '@payloadcms/ui'
 import React from 'react'
 
@@ -36,13 +37,6 @@ export const PredictionTargetsContainer = () => {
       </div>
     )
   }
-
-  const renderCells = <T,>(data: T[], getContent: (item: T, idx: number) => React.ReactNode) =>
-    data.map((item, idx) => (
-      <div key={idx} className="flex-1">
-        {getContent(item, idx)}
-      </div>
-    ))
 
   return (
     <div className="align-baseline">

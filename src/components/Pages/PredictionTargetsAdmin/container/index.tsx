@@ -1,13 +1,11 @@
 'use client'
 
 import StatusField from '@/components/Common/StatusField'
+import { renderCells } from '@/libs/utils'
 import { Pagination, Table } from '@payloadcms/ui'
 import React from 'react'
 
 export const PredictionTargetsAdminContainer = () => {
-  const renderCells = <T,>(data: T[], getContent: (item: T, idx: number) => React.ReactNode) =>
-    data.map((item, idx) => <div key={idx}>{getContent(item, idx)}</div>)
-
   return (
     <div className="align-middle">
       <Table
