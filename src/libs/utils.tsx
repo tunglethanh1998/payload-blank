@@ -7,6 +7,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+
+export const renderCells = <T,>(data: T[], getContent: (item: T, idx: number) => React.ReactNode) =>
+  data.map((item, idx) => <div key={`cell-${idx}`}>{getContent(item, idx)}</div>)
