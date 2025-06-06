@@ -1,4 +1,4 @@
-import { ROUTE } from '@/libs/enums'
+import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { Link } from '@payloadcms/ui'
 import React from 'react'
 
@@ -6,23 +6,23 @@ const sidebarGroups = [
   {
     label: 'Collections',
     links: [
-      { label: 'Media', href: '/admin/collections/media?limit=10' },
-      { label: 'Posts', href: '/admin/collections/posts?limit=10' },
-      { label: 'Users', href: '/admin/collections/users?limit=10' },
+      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
+      { label: 'Posts', href: ROUTE_NAVIGATE.POSTS },
+      { label: 'Users', href: ROUTE_NAVIGATE.USERS },
     ],
   },
   {
     label: 'Globals',
     links: [
-      { label: 'Header', href: '/admin/globals/header' },
-      { label: 'Footer', href: '/admin/globals/footer' },
+      { label: 'Header', href: ROUTE_NAVIGATE.HEADER },
+      { label: 'Footer', href: ROUTE_NAVIGATE.FOOTER },
     ],
   },
   {
     label: 'Custom View',
     links: [
-      { label: 'Race List', href: `/admin/${ROUTE.RACE_LIST}` },
-      { label: 'Prediction Targets', href: `/admin/${ROUTE.PREDICTION_TARGET}` },
+      { label: 'Race List', href: ROUTE_NAVIGATE.RACE_LIST },
+      { label: 'Prediction Targets', href: ROUTE_NAVIGATE.PREDICTION_TARGET },
     ],
   },
 ]

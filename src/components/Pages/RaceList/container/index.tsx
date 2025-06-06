@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { Button, CheckboxInput, Pagination, Table } from '@payloadcms/ui'
 import { SquarePen } from 'lucide-react'
 import { Badge } from '@/components/Common/Badge'
+import { renderCells } from '@/libs/utils'
+import { useRouter } from 'next/navigation'
+import { ROUTE_NAVIGATE } from '@/libs/enums'
 
 const data = [
   {
@@ -27,6 +30,7 @@ const data = [
 ]
 
 export function RaceListContainer() {
+  const router = useRouter()
   const [selectedIndexes, setSelectedIndexes] = useState<number[]>([])
 
   const toggleCheckbox = (index: number) => {
@@ -34,9 +38,6 @@ export function RaceListContainer() {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     )
   }
-
-  const renderCells = <T,>(data: T[], getContent: (item: T, idx: number) => React.ReactNode) =>
-    data.map((item, idx) => <div key={idx}>{getContent(item, idx)}</div>)
 
   return (
     <div className="raceList">
@@ -105,9 +106,13 @@ export function RaceListContainer() {
             field: { name: 'forecasterSettings', type: 'text' },
             Heading: <div className="font-bold">予想者設定</div>,
             renderedCells: renderCells(data, () => (
-              <Button type="button" className="m-0">
+              <Button
+                type="button"
+                className="m-0"
+                onClick={() => router.push(ROUTE_NAVIGATE.RACE_SETTINGS)}
+              >
                 <SquarePen size={14} />
-                <span className="font-semibold ml-2">編集</span>
+                <span className="font-semibold ml-2">設定</span>
               </Button>
             )),
           },

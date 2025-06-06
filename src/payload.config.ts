@@ -10,7 +10,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
-import { ROUTE } from './libs/enums'
+import { ROUTE_CONFIG } from './libs/enums'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,11 +24,15 @@ export default buildConfig({
       views: {
         raceList: {
           Component: '@/components/Pages/RaceList',
-          path: ROUTE.RACE_LIST,
+          path: ROUTE_CONFIG.RACE_LIST,
+        },
+        RaceSettings: {
+          Component: '@/components/Pages/RaceSettings',
+          path: ROUTE_CONFIG.RACE_SETTINGS,
         },
         predictionTargets: {
           Component: '@/components/Pages/PredictionTargets',
-          path: ROUTE.PREDICTION_TARGET,
+          path: ROUTE_CONFIG.PREDICTION_TARGET,
         },
       },
       afterNavLinks: ['@/components/AfterNavLinks'],
