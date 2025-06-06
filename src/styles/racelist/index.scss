@@ -1,0 +1,13 @@
+.raceList table td {
+  vertical-align: middle;
+}
+
+.raceList table th, td {
+  &:first-child {
+    min-width: 2rem;
+  }
+
+  &:nth-child(3) {
+    min-width: 4rem;
+  }
+}

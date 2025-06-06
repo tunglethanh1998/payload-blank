@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Button, CheckboxInput, Pagination, Table } from '@payloadcms/ui'
 import { SquarePen } from 'lucide-react'
 import { Badge } from '@/components/Common/Badge'
-import styles from './raceList.module.css'
 
 const data = [
   {
@@ -40,7 +39,7 @@ export function RaceListContainer() {
     data.map((item, idx) => <div key={idx}>{getContent(item, idx)}</div>)
 
   return (
-    <div className={styles.raceListContainer}>
+    <div className="raceList">
       <Table
         data={data}
         columns={[
@@ -48,7 +47,7 @@ export function RaceListContainer() {
             active: true,
             accessor: 'select',
             field: { name: 'select', type: 'text' },
-            Heading: <div className="font-bold">選択</div>,
+            Heading: <div className="font-bold w-[2rem]">選択</div>,
             renderedCells: renderCells(data, (_, idx) => (
               <CheckboxInput
                 checked={selectedIndexes.includes(idx)}
