@@ -3,12 +3,12 @@ import type { AdminViewServerProps } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 import React from 'react'
-import { PredictionTargetsContainer } from './container'
+import { PredictionTargetsAdminContainer } from './container'
 import { StepNav } from '@/components/Common/StepNav'
 import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { Header } from '@/components/Common/Header'
 
-const PredictionTarget = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
+const PredictionTargetAdmin = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
     <DefaultTemplate
       i18n={initPageResult.req.i18n}
@@ -23,17 +23,17 @@ const PredictionTarget = ({ initPageResult, params, searchParams }: AdminViewSer
       <StepNav
         nav={[
           {
-            label: 'Prediction Targets',
-            url: ROUTE_NAVIGATE.PREDICTION_TARGET,
+            label: 'Prediction Targets Admin',
+            url: ROUTE_NAVIGATE.PREDICTION_TARGET_ADMIN,
           },
         ]}
       />
       <Gutter>
-        <Header title="Prediction Targets" />
-        <PredictionTargetsContainer />
+        <Header title="Prediction Targets Admin" />
+        <PredictionTargetsAdminContainer />
       </Gutter>
     </DefaultTemplate>
   )
 }
 
-export default PredictionTarget
+export default PredictionTargetAdmin

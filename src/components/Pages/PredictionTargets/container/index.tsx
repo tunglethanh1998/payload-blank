@@ -1,10 +1,10 @@
 'use client'
 
+import StatusField from '@/components/Common/StatusField'
 import { Pagination, Table } from '@payloadcms/ui'
 import React from 'react'
-import StatusField from '../component/StatusField'
 
-export const PredictionTargetsPredictorContent = () => {
+export const PredictionTargetsContainer = () => {
   const renderNoticeBoard = () => {
     return (
       <div className="my-10 border-2 border-orange-400 border-r-4">
@@ -46,7 +46,6 @@ export const PredictionTargetsPredictorContent = () => {
 
   return (
     <div className="align-baseline">
-      <h1 className="mb-5 font-bold">レース一覧</h1>
       {renderNoticeBoard()}
       <div className="w-full">
         <Table
