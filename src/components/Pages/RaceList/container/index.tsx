@@ -1,105 +1,43 @@
 'use client'
-import { Button, CheckboxInput, Table } from '@payloadcms/ui'
-import { SquarePen } from 'lucide-react'
 
+import { useState } from 'react'
+import { Button, CheckboxInput, Pagination, Table } from '@payloadcms/ui'
+import { SquarePen } from 'lucide-react'
+import { Badge } from '@/components/Common/Badge'
 import styles from './raceList.module.css'
 
 const data = [
   {
-    eventPeriod: {
-      startDate: '2015-04-14',
-      endDate: '2015-04-19',
-    },
-    forecastTarget: '〇',
+    eventPeriod: { startDate: '2015-04-14', endDate: '2015-04-19' },
     racetrack: '児島',
     grade: 'GI',
     title: 'GI第16回マスターズチャンピオン',
-    forecasterSettings: '',
-    forecasterEditing: '',
   },
   {
-    eventPeriod: {
-      startDate: '2015-04-14',
-      endDate: '2015-04-19',
-    },
-    forecastTarget: '-',
+    eventPeriod: { startDate: '2015-04-14', endDate: '2015-04-19' },
     racetrack: '児島',
     grade: 'GI',
     title: '開設62周年記念競走GIトコタンキング決定戦',
-    forecasterSettings: '',
-    forecasterEditing: '',
   },
   {
-    eventPeriod: {
-      startDate: '2015-04-14',
-      endDate: '2015-04-19',
-    },
-    forecastTarget: '-',
+    eventPeriod: { startDate: '2015-04-14', endDate: '2015-04-19' },
     racetrack: '常滑',
     grade: 'GI',
     title: 'GIつつじ賞王座決定戦 開設63周年記念競走',
-    forecasterSettings: '',
-    forecasterEditing: '',
   },
 ]
 
 export function RaceListContainer() {
-  const renderSelectCells = () => {
-    return data.map((_, idx) => (
-      <CheckboxInput key={`select-${idx}`} checked={idx === 0} onToggle={() => {}} />
-    ))
+  const [selectedIndexes, setSelectedIndexes] = useState<number[]>([])
+
+  const toggleCheckbox = (index: number) => {
+    setSelectedIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
   }
 
-  const renderEventPeriodCells = () => {
-    return data.map((item, idx) => (
-      <div className="flex gap-3" key={`period-${idx}`}>
-        <span className="px-3 py-2 rounded-xl bg-gray-400 text-gray-800 font-bold min-w-[8rem]">
-          {item.eventPeriod.startDate}
-        </span>
-        <span className="px-3 py-2 rounded-xl bg-gray-600 text-gray-300 font-bold min-w-[8rem]">
-          {item.eventPeriod.endDate}
-        </span>
-      </div>
-    ))
-  }
-
-  const renderForecastTargetCells = () => {
-    return data.map((item, idx) => <div key={`forecast-target-${idx}`}>{item.forecastTarget}</div>)
-  }
-
-  const renderRaceTrackCells = () => {
-    return data.map((item, idx) => <div key={`racetrack-${idx}`}>{item.racetrack}</div>)
-  }
-
-  const renderGradeCells = () => {
-    return data.map((item, idx) => <div key={`grade-${idx}`}>{item.grade}</div>)
-  }
-
-  const renderTitleCells = () => {
-    return data.map((item, idx) => <div key={`title-${idx}`}>{item.title}</div>)
-  }
-
-  const renderForecasterSettingsCells = () => {
-    return data.map((_, idx) => (
-      <div key={`forecaster-setting-${idx}`}>
-        <Button type="button" className="m-0">
-          <SquarePen size={14} />
-          <span className="font-semibold ml-[0.5rem]">編集</span>
-        </Button>
-      </div>
-    ))
-  }
-
-  const renderForecasterEditingCells = () => {
-    return data.map((_, idx) => (
-      <div key={`forecaster-editing-${idx}`}>
-        <Button type="button" className="m-0">
-          <SquarePen size={14} />
-          <span className="font-semibold ml-[0.5rem]">編集</span>
-        </Button>
-      </div>
-    ))
-  }
+  const renderCells = <T,>(data: T[], getContent: (item: T, idx: number) => React.ReactNode) =>
+    data.map((item, idx) => <div key={idx}>{getContent(item, idx)}</div>)
 
   return (
     <div className={styles.raceListContainer}>
@@ -110,60 +48,103 @@ export function RaceListContainer() {
             active: true,
             accessor: 'select',
             field: { name: 'select', type: 'text' },
-            Heading: <div>選択</div>,
-            renderedCells: renderSelectCells(),
+            Heading: <div className="font-bold">選択</div>,
+            renderedCells: renderCells(data, (_, idx) => (
+              <CheckboxInput
+                checked={selectedIndexes.includes(idx)}
+                onToggle={() => toggleCheckbox(idx)}
+              />
+            )),
           },
           {
             active: true,
             accessor: 'eventPeriod',
             field: { name: 'eventPeriod', type: 'text' },
-            Heading: <div>開催期間</div>,
-            renderedCells: renderEventPeriodCells(),
+            Heading: <div className="font-bold">開催期間</div>,
+            renderedCells: renderCells(data, (item) => (
+              <div className="flex gap-3">
+                <Badge size="md">{item.eventPeriod.startDate}</Badge>
+                <Badge variant="destructive" size="md">
+                  {item.eventPeriod.endDate}
+                </Badge>
+              </div>
+            )),
           },
           {
             active: true,
             accessor: 'forecastTarget',
             field: { name: 'forecastTarget', type: 'text' },
-            Heading: <div>予想対象</div>,
-            renderedCells: renderForecastTargetCells(),
+            Heading: <div className="font-bold">予想対象</div>,
+            renderedCells: renderCells(data, (_, idx) => (
+              <>{selectedIndexes.includes(idx) ? '〇' : '-'}</>
+            )),
           },
           {
             active: true,
             accessor: 'racetrack',
             field: { name: 'racetrack', type: 'text' },
-            Heading: <div>レース場</div>,
-            renderedCells: renderRaceTrackCells(),
+            Heading: <div className="font-bold">レース場</div>,
+            renderedCells: renderCells(data, (item) => <>{item.racetrack}</>),
           },
           {
             active: true,
             accessor: 'grade',
             field: { name: 'grade', type: 'text' },
-            Heading: <div>グレード</div>,
-            renderedCells: renderGradeCells(),
+            Heading: <div className="font-bold">グレード</div>,
+            renderedCells: renderCells(data, (item) => <>{item.grade}</>),
           },
           {
             active: true,
             accessor: 'title',
             field: { name: 'title', type: 'text' },
-            Heading: <div>タイトル</div>,
-            renderedCells: renderTitleCells(),
+            Heading: <div className="font-bold">タイトル</div>,
+            renderedCells: renderCells(data, (item) => <>{item.title}</>),
           },
           {
             active: true,
             accessor: 'forecasterSettings',
             field: { name: 'forecasterSettings', type: 'text' },
-            Heading: <div>予想者設定</div>,
-            renderedCells: renderForecasterSettingsCells(),
+            Heading: <div className="font-bold">予想者設定</div>,
+            renderedCells: renderCells(data, () => (
+              <Button type="button" className="m-0">
+                <SquarePen size={14} />
+                <span className="font-semibold ml-2">編集</span>
+              </Button>
+            )),
           },
           {
             active: true,
             accessor: 'forecasterEditing',
             field: { name: 'forecasterEditing', type: 'text' },
-            Heading: <div>プレミアデータ編集</div>,
-            renderedCells: renderForecasterEditingCells(),
+            Heading: <div className="font-bold">プレミアデータ編集</div>,
+            renderedCells: renderCells(data, () => (
+              <Button type="button" className="m-0">
+                <SquarePen size={14} />
+                <span className="font-semibold ml-2">編集</span>
+              </Button>
+            )),
           },
         ]}
       />
+      <div className="flex gap-8 mt-4">
+        <Button
+          size="large"
+          type="button"
+          className="min-w-[18rem] font-bold"
+          buttonStyle="primary"
+        >
+          選択レースを予想対象に変更
+        </Button>
+        <Button
+          size="large"
+          type="button"
+          className="min-w-[18rem] font-bold"
+          buttonStyle="secondary"
+        >
+          選択レースを予想対象外に変更
+        </Button>
+      </div>
+      <Pagination hasNextPage hasPrevPage page={4} totalPages={10} />
     </div>
   )
 }
