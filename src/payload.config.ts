@@ -34,6 +34,10 @@ export default buildConfig({
           Component: '@/components/Pages/PredictionTargets',
           path: ROUTE_CONFIG.PREDICTION_TARGET,
         },
+        predictionTargetsAdmin: {
+          Component: '@/components/Pages/PredictionTargetsAdmin',
+          path: ROUTE_CONFIG.PREDICTION_TARGET_ADMIN,
+        },
       },
       afterNavLinks: ['@/components/AfterNavLinks'],
     },
