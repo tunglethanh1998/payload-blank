@@ -23,13 +23,13 @@ const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps
       <StepNav
         nav={[
           {
-            label: 'Race list',
+            label: 'レース一覧',
             url: ROUTE_NAVIGATE.RACE_LIST,
           },
         ]}
       />
       <Gutter>
-        <Header title="Race list" />
+        <Header title="レース一覧" />
         <RaceListContainer />
       </Gutter>
     </DefaultTemplate>

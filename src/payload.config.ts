@@ -17,6 +17,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
+    theme: 'dark',
     importMap: {
       baseDir: path.resolve(dirname),
     },

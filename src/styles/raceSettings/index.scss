@@ -1,0 +1,27 @@
+.raceSettingTable table {
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+  td {
+    text-align: center;
+    vertical-align: middle;
+
+    div {
+      vertical-align: middle;
+    }
+  }
+}
+
+.raceSettingTable1 table th, td {
+  &:first-child {
+    min-width: 12.5rem;
+  }
+}
+
+.raceSettingTable2 table th, td {
+  &:first-child {
+    min-width: 12.5rem;
+  }
+}
+
