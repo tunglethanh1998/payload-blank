@@ -8,7 +8,7 @@ import { StepNav } from '@/components/Common/StepNav'
 import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { Header } from '@/components/Common/Header'
 
-const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
+const RaceSettings = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
     <DefaultTemplate
       i18n={initPageResult.req.i18n}
@@ -23,21 +23,21 @@ const RaceList = ({ initPageResult, params, searchParams }: AdminViewServerProps
       <StepNav
         nav={[
           {
-            label: 'Race list',
+            label: 'レース一覧',
             url: ROUTE_NAVIGATE.RACE_LIST,
           },
           {
-            label: 'Race settings',
+            label: '予想者設定',
             url: ROUTE_NAVIGATE.RACE_SETTINGS,
           },
         ]}
       />
       <Gutter>
-        <Header title="Race settings" />
+        <Header title="予想者設定" />
         <RaceSettingContainer />
       </Gutter>
     </DefaultTemplate>
   )
 }
 
-export default RaceList
+export default RaceSettings

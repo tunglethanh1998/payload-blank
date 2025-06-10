@@ -17,18 +17,23 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
+    theme: 'dark',
     importMap: {
       baseDir: path.resolve(dirname),
     },
     components: {
       views: {
-        raceList: {
+        RaceList: {
           Component: '@/components/Pages/RaceList',
           path: ROUTE_CONFIG.RACE_LIST,
         },
         RaceSettings: {
           Component: '@/components/Pages/RaceSettings',
           path: ROUTE_CONFIG.RACE_SETTINGS,
+        },
+        RaceInfo: {
+          Component: '@/components/Pages/RaceInfo',
+          path: ROUTE_CONFIG.RACE_INFO,
         },
         predictionTargets: {
           Component: '@/components/Pages/PredictionTargets',
