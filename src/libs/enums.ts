@@ -2,6 +2,7 @@
 export enum ROUTE_CONFIG {
   RACE_LIST = '/race-list',
   RACE_SETTINGS = '/race-list/race-settings',
+  RACE_INFO = '/race-list/race-info',
   PREDICTION_TARGET = '/prediction-target',
 }
 
@@ -19,5 +20,6 @@ export enum ROUTE_NAVIGATE {
   // Custom
   RACE_LIST = '/admin/race-list',
   RACE_SETTINGS = '/admin/race-list/race-settings',
+  RACE_INFO = '/admin/race-list/race-info',
   PREDICTION_TARGET = '/admin/prediction-target',
 }

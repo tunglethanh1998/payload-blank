@@ -316,7 +316,7 @@ export function RaceSettingContainer() {
               },
             ]}
           />
-          <Button className="m-0" onClick={addTalentRow}>
+          <Button type="button" className="m-0" onClick={addTalentRow}>
             <Plus />
           </Button>
         </div>
@@ -448,11 +448,13 @@ export function RaceSettingContainer() {
               },
             ]}
           />
-          <Button className="m-0" onClick={addReporterRow}>
+          <Button type="button" className="m-0" onClick={addReporterRow}>
             <Plus />
           </Button>
         </div>
-        <Button className="m-0 min-w-[10rem] mt-6">保存</Button>
+        <Button type="button" className="m-0 min-w-[10rem] mt-6">
+          保存
+        </Button>
       </div>
     </>
   )

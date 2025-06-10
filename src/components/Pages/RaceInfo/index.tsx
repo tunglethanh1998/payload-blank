@@ -3,12 +3,12 @@ import type { AdminViewServerProps } from 'payload'
 import { DefaultTemplate } from '@payloadcms/next/templates'
 import { Gutter } from '@payloadcms/ui'
 import React from 'react'
-import { RaceSettingContainer } from './container'
+import { RaceInfoContainer } from './container'
 import { StepNav } from '@/components/Common/StepNav'
 import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { Header } from '@/components/Common/Header'
 
-const RaceSettings = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
+const RaceInfo = ({ initPageResult, params, searchParams }: AdminViewServerProps) => {
   return (
     <DefaultTemplate
       i18n={initPageResult.req.i18n}
@@ -27,17 +27,17 @@ const RaceSettings = ({ initPageResult, params, searchParams }: AdminViewServerP
             url: ROUTE_NAVIGATE.RACE_LIST,
           },
           {
-            label: '予想者設定',
-            url: ROUTE_NAVIGATE.RACE_SETTINGS,
+            label: 'レース情報',
+            url: ROUTE_NAVIGATE.RACE_INFO,
           },
         ]}
       />
       <Gutter>
-        <Header title="予想者設定" />
-        <RaceSettingContainer />
+        <Header title="レース情報" />
+        <RaceInfoContainer />
       </Gutter>
     </DefaultTemplate>
   )
 }
 
-export default RaceSettings
+export default RaceInfo
