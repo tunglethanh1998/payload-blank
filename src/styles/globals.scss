@@ -1,8 +1,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './raceList/index.scss';
-@import './raceSettings/index.scss';
+@import '../styles/racelist/index.scss';
+@import '../styles/raceSettings/index.scss';
 
 #nav-group-Collections {
   display: none;
