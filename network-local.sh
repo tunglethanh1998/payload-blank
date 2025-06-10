@@ -30,6 +30,10 @@ docker run -d \
 echo "⏳ Waiting for PostgreSQL to be ready..."
 sleep 5
 
+# 🔨 Build the Payload app image
+echo "📦 Building Payload app Docker image..."
+docker build -t $APP_IMAGE .
+
 # Step 3: Start your Payload app
 echo "🚀 Starting Payload app from image '$APP_IMAGE'..."
 docker run -d \
