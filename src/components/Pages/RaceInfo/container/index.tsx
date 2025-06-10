@@ -1,14 +1,6 @@
 'use client'
 import { renderCells } from '@/libs/utils'
-import {
-  Button,
-  Dropzone,
-  Table,
-  TextareaInput,
-  TextInput,
-  Upload,
-  UploadInput,
-} from '@payloadcms/ui'
+import { Button, Dropzone, Table, TextareaInput, TextInput } from '@payloadcms/ui'
 
 const data = [
   {

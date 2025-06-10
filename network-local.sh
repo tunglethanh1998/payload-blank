@@ -2,39 +2,37 @@
 
 # Define variables
 NETWORK_NAME="payload-network"
-POSTGRES_CONTAINER="pg-local"
-
+POSTGRES_CONTAINER="payload-db" # 👈 Your actual Postgres container name
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="postgres"
-POSTGRES_DB="payload-db"
-
+POSTGRES_DB="payload" # 👈 Match your running container
 APP_IMAGE="payload-app-blank"
 APP_PORT=3000
 
 echo "🔧 Checking Docker network..."
 docker network inspect $NETWORK_NAME >/dev/null 2>&1 || docker network create $NETWORK_NAME
 
-echo "🐘 Starting PostgreSQL container..."
-docker rm -f $POSTGRES_CONTAINER >/dev/null 2>&1
+echo "🔗 Connecting existing PostgreSQL container to the network..."
+# Only connect if not already in the network
+if ! docker inspect $POSTGRES_CONTAINER | grep $NETWORK_NAME > /dev/null; then
+  docker network connect $NETWORK_NAME $POSTGRES_CONTAINER
+fi
 
-docker run -d \
-  --name $POSTGRES_CONTAINER \
-  --network $NETWORK_NAME \
-  -e POSTGRES_USER=$POSTGRES_USER \
-  -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
-  -e POSTGRES_DB=$POSTGRES_DB \
-  -p 5432:5432 \
-  postgres:latest
-
-# Optional: wait for Postgres to be ready
+# Optional: wait until Postgres is accepting connections
 echo "⏳ Waiting for PostgreSQL to be ready..."
-sleep 5
+until docker exec $POSTGRES_CONTAINER pg_isready -U $POSTGRES_USER > /dev/null 2>&1; do
+  echo "⏳ Still waiting for DB..."
+  sleep 1
+done
 
 # 🔨 Build the Payload app image
 echo "📦 Building Payload app Docker image..."
 docker build -t $APP_IMAGE .
 
-# Step 3: Start your Payload app
+# Stop previous app if exists
+docker rm -f payload-app-run >/dev/null 2>&1
+
+# 🚀 Start the Payload app
 echo "🚀 Starting Payload app from image '$APP_IMAGE'..."
 docker run -d \
   --name payload-app-run \
