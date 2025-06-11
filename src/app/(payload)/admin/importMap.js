@@ -3,11 +3,15 @@ import { default as default_ad44889f58df4e99210146c51158a6ba } from '@/component
 import { default as default_d5a1575951a32156bf5f24180b347a19 } from '@/components/Pages/RaceSettings'
 import { default as default_82cb54cea17942e21ee8956c92300c78 } from '@/components/Pages/PredictionTargets'
 import { default as default_a0a77058b8a476d297b9f7a3fedbf647 } from '@/components/Pages/PredictionTargetsAdmin'
+import { default as default_4bc26d1b3bfb73236a24ea6f10275957 } from '@/components/Pages/PredictionDetail'
+import { default as default_6e91e31df0a843e0ef25f9e086078157 } from '@/components/Pages/EditPredictionDetail'
 
 export const importMap = {
   "@/components/AfterNavLinks#default": default_aa936f6d4bfcfa210342637718f4c629,
   "@/components/Pages/RaceList#default": default_ad44889f58df4e99210146c51158a6ba,
   "@/components/Pages/RaceSettings#default": default_d5a1575951a32156bf5f24180b347a19,
   "@/components/Pages/PredictionTargets#default": default_82cb54cea17942e21ee8956c92300c78,
-  "@/components/Pages/PredictionTargetsAdmin#default": default_a0a77058b8a476d297b9f7a3fedbf647
+  "@/components/Pages/PredictionTargetsAdmin#default": default_a0a77058b8a476d297b9f7a3fedbf647,
+  "@/components/Pages/PredictionDetail#default": default_4bc26d1b3bfb73236a24ea6f10275957,
+  "@/components/Pages/EditPredictionDetail#default": default_6e91e31df0a843e0ef25f9e086078157
 }

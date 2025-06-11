@@ -4,6 +4,8 @@ export enum ROUTE_CONFIG {
   RACE_SETTINGS = '/race-list/race-settings',
   PREDICTION_TARGET = '/prediction-target',
   PREDICTION_TARGET_ADMIN = '/prediction-target-admin',
+  PREDICTION_DETAIL = '/prediction-detail',
+  EDIT_PREDICTION_DETAIL = '/edit-prediction-detail',
 }
 
 // Apply when navigate
@@ -22,4 +24,6 @@ export enum ROUTE_NAVIGATE {
   RACE_SETTINGS = '/admin/race-list/race-settings',
   PREDICTION_TARGET = '/admin/prediction-target',
   PREDICTION_TARGET_ADMIN = '/admin/prediction-target-admin',
+  PREDICTION_DETAIL = '/admin/prediction-detail',
+  EDIT_PREDICTION_DETAIL = '/admin/edit-prediction-detail',
 }
