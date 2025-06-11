@@ -1,11 +1,15 @@
 'use client'
 
 import StatusField from '@/components/Common/StatusField'
+import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { renderCells } from '@/libs/utils'
 import { Pagination, Table } from '@payloadcms/ui'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 export const PredictionTargetsContainer = () => {
+  const router = useRouter()
+
   const renderNoticeBoard = () => {
     return (
       <div className="my-10 border-2 border-orange-400 border-r-4">
@@ -64,7 +68,12 @@ export const PredictionTargetsContainer = () => {
               accessor: 'status',
               field: { name: 'status', type: 'text' },
               Heading: <div>タレント 1</div>,
-              renderedCells: renderCells(races, (item) => <StatusField status={item.status} />),
+              renderedCells: renderCells(races, (item) => (
+                <StatusField
+                  onEdit={() => router.push(ROUTE_NAVIGATE.PREDICTION_DETAIL)}
+                  status={item.status}
+                />
+              )),
             },
           ]}
         />
