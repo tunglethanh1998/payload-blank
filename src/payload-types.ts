@@ -138,26 +138,14 @@ export interface User {
  */
 export interface News {
   id: number;
-  category: 'notice' | 'column' | 'campaign' | 'other';
   title: string;
+  category: 'notice' | 'column' | 'campaign' | 'other';
   startDate: string;
-  endDate: string;
-  releaseDate: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  Url?: string | null;
+  content?: string | null;
+  media?: (number | null) | Media;
+  new?: boolean | null;
+  externalLink?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -261,12 +249,14 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "news_select".
  */
 export interface NewsSelect<T extends boolean = true> {
-  category?: T;
   title?: T;
+  category?: T;
   startDate?: T;
-  endDate?: T;
-  releaseDate?: T;
+  Url?: T;
   content?: T;
+  media?: T;
+  new?: T;
+  externalLink?: T;
   updatedAt?: T;
   createdAt?: T;
 }
