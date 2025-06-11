@@ -1,9 +1,10 @@
 'use client'
 
 import { renderCells } from '@/libs/utils'
-import { Button, Table } from '@payloadcms/ui'
+import { Button, Table, TextInput } from '@payloadcms/ui'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { SelectField } from '@/components/Common/SelectField'
 
 const NUMBERS = [1, 2, 3, 4, 5, 6]
 const SYMBOLS = ['-', '=']
@@ -19,6 +20,21 @@ const predictionsData: Prediction[] = [
     id: 1,
     lapsPrediction: [[1, 2], [4], [1, 2, 3, 4, 5, 6]],
     symbols: ['-', '-'],
+  },
+]
+
+const confidentList = [
+  {
+    id: 1,
+    label: 1,
+  },
+  {
+    id: 2,
+    label: 2,
+  },
+  {
+    id: 3,
+    label: 3,
   },
 ]
 
@@ -102,7 +118,7 @@ const EditPredictionDetailContainer = () => {
             return (
               <Button
                 key={index}
-                className={`m-0 w-10 h-10 border border-gray-400  text-black text-lg p-0 min-w-0 min-h-0 ${lapsPrediction?.includes(boat) ? 'bg-yellow-100' : 'bg-white'}`}
+                className={`m-0 w-10 h-10 border border-gray-400 text-bold  text-black text-lg p-0 min-w-0 min-h-0 ${lapsPrediction?.includes(boat) ? 'bg-green-200' : 'bg-white'}`}
                 onClick={() => handleNumberClick(predictionIdx, lapIdx, boat)}
               >
                 {boat}
@@ -111,7 +127,7 @@ const EditPredictionDetailContainer = () => {
           })}
         </div>
         <Button
-          className={`m-0 w-10 h-10 border border-gray-400  text-black text-lg p-0 min-w-0 min-h-0 ${isAll ? 'bg-yellow-100' : 'bg-white'}`}
+          className={`m-0 w-10 h-10 border border-gray-400 text-bold text-black text-lg p-0 min-w-0 min-h-0 ${isAll ? 'bg-green-200' : 'bg-white'}`}
           onClick={() => handleAllClick(predictionIdx, lapIdx)}
         >
           全
@@ -128,7 +144,7 @@ const EditPredictionDetailContainer = () => {
             return (
               <Button
                 key={index}
-                className={`m-0 w-10 h-10 border border-gray-400 text-l text-black p-0 min-w-0 min-h-0 ${currentSymbol === symbol ? 'bg-yellow-100' : 'bg-white'}`}
+                className={`m-0 w-10 h-10 border border-gray-400 text-l text-black p-0 min-w-0 min-h-0 ${currentSymbol === symbol ? 'bg-green-200' : 'bg-white'}`}
                 onClick={() => handleSymbolClick(predictionIdx, symbolIdx, symbol)}
               >
                 {symbol}
@@ -224,32 +240,22 @@ const EditPredictionDetailContainer = () => {
         </Button>
         <div className="mb-6 flex w-full items-center">
           <label className="mr-2 w-1/12">自信度</label>
-          <select
-            value={confidence}
-            onChange={(e) => setConfidence(e.target.value)}
-            className="p-1 rounded border w-1/6 border-gray-400"
-          >
-            <option value="">-</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <SelectField options={confidentList} isClearable placeholder="Select confident level" />
         </div>
         <div className="mb-6 flex w-full">
           <label className="mr-2 w-1/12">ひとことコメント</label>
-          <input
-            type="text"
-            value={shortComment}
-            onChange={(e) => setShortComment(e.target.value)}
-            className="w-11/12 p-1 rounded border border-gray-400"
+          <TextInput
+            path="one-word-comment"
+            onChange={(e: any) => setShortComment(e.target.value)}
+            className="w-6/12 p-1 rounded border border-gray-400"
           />
         </div>
         <div className="mb-6 w-full flex">
           <label className="mr-2 w-1/12">コメント</label>
-          <input
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            className="w-11/12 h-20 p-1 rounded border border-gray-400 mt-1"
+          <TextInput
+            path="comment"
+            onChange={(e: any) => setComment(e.target.value)}
+            className="w-6/12 p-1 rounded border border-gray-400"
           />
         </div>
         <Button
