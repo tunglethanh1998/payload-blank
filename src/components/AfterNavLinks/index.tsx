@@ -24,6 +24,7 @@ const sidebarGroups = [
       { label: 'Race List', href: ROUTE_NAVIGATE.RACE_LIST },
       { label: 'Prediction Targets', href: ROUTE_NAVIGATE.PREDICTION_TARGET },
       { label: 'Prediction Targets for Admin', href: ROUTE_NAVIGATE.PREDICTION_TARGET_ADMIN },
+      { label: 'Prediction Detail', href: ROUTE_NAVIGATE.PREDICTION_DETAIL },
     ],
   },
 ]

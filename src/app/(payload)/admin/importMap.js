@@ -27,6 +27,8 @@ import { default as default_d5a1575951a32156bf5f24180b347a19 } from '@/component
 import { default as default_0bbbc96747a3f698ac75221e815b383d } from '@/components/Pages/RaceInfo'
 import { default as default_82cb54cea17942e21ee8956c92300c78 } from '@/components/Pages/PredictionTargets'
 import { default as default_a0a77058b8a476d297b9f7a3fedbf647 } from '@/components/Pages/PredictionTargetsAdmin'
+import { default as default_4bc26d1b3bfb73236a24ea6f10275957 } from '@/components/Pages/PredictionDetail'
+import { default as default_6e91e31df0a843e0ef25f9e086078157 } from '@/components/Pages/EditPredictionDetail'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -57,5 +59,7 @@ export const importMap = {
   "@/components/Pages/RaceSettings#default": default_d5a1575951a32156bf5f24180b347a19,
   "@/components/Pages/RaceInfo#default": default_0bbbc96747a3f698ac75221e815b383d,
   "@/components/Pages/PredictionTargets#default": default_82cb54cea17942e21ee8956c92300c78,
-  "@/components/Pages/PredictionTargetsAdmin#default": default_a0a77058b8a476d297b9f7a3fedbf647
+  "@/components/Pages/PredictionTargetsAdmin#default": default_a0a77058b8a476d297b9f7a3fedbf647,
+  "@/components/Pages/PredictionDetail#default": default_4bc26d1b3bfb73236a24ea6f10275957,
+  "@/components/Pages/EditPredictionDetail#default": default_6e91e31df0a843e0ef25f9e086078157
 }
