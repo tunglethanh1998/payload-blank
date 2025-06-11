@@ -1,7 +1,8 @@
+@use './racelist/index.scss' as *;
+@use './raceSettings/index.scss' as *;
+
 @tailwind components;
 @tailwind utilities;
-
-@import './racelist/index.scss';
 
 #nav-group-Collections {
   display: none;
@@ -10,4 +11,3 @@
 #nav-group-Globals {
   display: none;
 }
-

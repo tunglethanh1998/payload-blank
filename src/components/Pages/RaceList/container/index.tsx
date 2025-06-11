@@ -108,11 +108,11 @@ export function RaceListContainer() {
             renderedCells: renderCells(data, () => (
               <Button
                 type="button"
-                className="m-0"
+                className="m-0 bg-[#18BC9C] text-white"
                 onClick={() => router.push(ROUTE_NAVIGATE.RACE_SETTINGS)}
               >
-                <SquarePen size={14} />
-                <span className="font-semibold ml-2">設定</span>
+                <SquarePen size={14} className="mr-2" />
+                <span className="font-semibold">設定</span>
               </Button>
             )),
           },
@@ -122,9 +122,13 @@ export function RaceListContainer() {
             field: { name: 'forecasterEditing', type: 'text' },
             Heading: <div className="font-bold">プレミアデータ編集</div>,
             renderedCells: renderCells(data, () => (
-              <Button type="button" className="m-0">
-                <SquarePen size={14} />
-                <span className="font-semibold ml-2">編集</span>
+              <Button
+                type="button"
+                className="m-0 bg-[#18BC9C] text-white"
+                onClick={() => router.push(ROUTE_NAVIGATE.RACE_INFO)}
+              >
+                <SquarePen size={14} className="mr-2" />
+                <span className="font-semibold ">編集</span>
               </Button>
             )),
           },

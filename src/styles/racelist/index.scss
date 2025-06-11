@@ -2,7 +2,8 @@
   vertical-align: middle;
 }
 
-.raceList table th, td {
+.raceList table th,
+.raceList table td {
   &:first-child {
     min-width: 2rem;
   }
