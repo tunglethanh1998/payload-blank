@@ -6,11 +6,14 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { ROUTE_CONFIG } from './libs/enums'
 
+// Collections
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { Posts } from './collections/Posts'
-import { ROUTE_CONFIG } from './libs/enums'
+import { News } from './collections/News'
+
+// Globals
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -47,7 +50,7 @@ export default buildConfig({
       afterNavLinks: ['@/components/AfterNavLinks'],
     },
   },
-  collections: [Users, Media, Posts],
+  collections: [Users, News, Media],
   globals: [],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
