@@ -35,23 +35,23 @@ export function RaceInfoContainer() {
       <h2 className="mt-6 text-[1.5rem] font-semibold">今節のみどころ</h2>
 
       <div className="mt-4 grid gap-y-6">
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">画像</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">画像</div>
+          <div className="max-md:mt-4">
             <Dropzone onChange={() => {}}>
               <input type="file" />
             </Dropzone>
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">タイトル</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">タイトル</div>
+          <div className="max-md:mt-4">
             <TextInput path="title" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">本文</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">本文</div>
+          <div className="max-md:mt-4">
             <TextareaInput rows={5} path="content" onChange={() => {}} />
           </div>
         </div>
@@ -60,29 +60,29 @@ export function RaceInfoContainer() {
       <h2 className="mt-6 text-[1.5rem] font-semibold">AIレーダー</h2>
 
       <div className="mt-4 grid gap-y-6">
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">画像</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">画像</div>
+          <div className="max-md:mt-4">
             <Dropzone onChange={() => {}}>
               <input type="file" />
             </Dropzone>
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">勝率</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">勝率</div>
+          <div className="max-md:mt-4">
             <TextInput path="title" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">レース期間</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">レース期間</div>
+          <div className="max-md:mt-4">
             <TextInput path="title" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">本文</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">本文</div>
+          <div className="max-md:mt-4">
             <TextareaInput rows={5} path="content" onChange={() => {}} />
           </div>
         </div>
@@ -135,15 +135,15 @@ export function RaceInfoContainer() {
       <h2 className="mt-6 text-[1.5rem] font-semibold">モーター動向</h2>
 
       <div className="mt-4 grid gap-y-6">
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">注目モーター</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">注目モーター</div>
+          <div className="max-md:mt-4">
             <TextInput path="title" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">モーター情報</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">モーター情報</div>
+          <div className="max-md:mt-4">
             <TextareaInput rows={5} path="content" onChange={() => {}} />
           </div>
         </div>
@@ -234,29 +234,29 @@ export function RaceInfoContainer() {
       </div>
 
       <div className="mt-6 grid gap-y-6">
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">タイトル</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">タイトル</div>
+          <div className="max-md:mt-4">
             <TextInput path="title" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">タイトル</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">タイトル</div>
+          <div className="max-md:mt-4">
             <Dropzone onChange={() => {}}>
               <input type="file" />
             </Dropzone>
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">特徴</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">特徴</div>
+          <div className="max-md:mt-4">
             <TextareaInput rows={5} path="content" onChange={() => {}} />
           </div>
         </div>
-        <div className="grid grid-cols-[10rem,1fr] gap-x-6 items-center">
-          <div className="text-[18px] text-right">水面特性</div>
-          <div>
+        <div className="grid md:grid-cols-[10rem,1fr] gap-x-6 items-center">
+          <div className="text-[18px] md:text-right">水面特性</div>
+          <div className="max-md:mt-4">
             <TextareaInput rows={5} path="content" onChange={() => {}} />
           </div>
         </div>
