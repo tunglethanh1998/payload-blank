@@ -67,18 +67,20 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    media: Media;
     users: User;
     news: News;
-    media: Media;
+    'talent-reporter': TalentReporter;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
+    media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    'talent-reporter': TalentReporterSelect<false> | TalentReporterSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -114,6 +116,26 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -166,23 +188,20 @@ export interface News {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "talent-reporter".
  */
-export interface Media {
+export interface TalentReporter {
   id: number;
-  alt: string;
-  prefix?: string | null;
+  name: string;
+  type: 'talent' | 'reporter';
+  sns?: string | null;
+  order?: boolean | null;
+  introduction?: string | null;
+  iconImage?: (number | null) | Media;
+  sportsLogo?: (number | null) | Media;
+  specImage?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -192,6 +211,10 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
         relationTo: 'users';
         value: number | User;
       } | null)
@@ -200,8 +223,8 @@ export interface PayloadLockedDocument {
         value: number | News;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
+        relationTo: 'talent-reporter';
+        value: number | TalentReporter;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -247,6 +270,25 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -279,22 +321,19 @@ export interface NewsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "talent-reporter_select".
  */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  prefix?: T;
+export interface TalentReporterSelect<T extends boolean = true> {
+  name?: T;
+  type?: T;
+  sns?: T;
+  order?: T;
+  introduction?: T;
+  iconImage?: T;
+  sportsLogo?: T;
+  specImage?: T;
   updatedAt?: T;
   createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

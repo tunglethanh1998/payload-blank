@@ -13,6 +13,7 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { News } from './collections/News'
+import { TalentReporter } from './collections/TalentReporter'
 
 // Globals
 
@@ -59,7 +60,7 @@ export default buildConfig({
       afterNavLinks: ['@/components/AfterNavLinks'],
     },
   },
-  collections: [Users, News, Media],
+  collections: [Media, Users, News, TalentReporter],
   globals: [],
   // onInit: async (payload) => {
   // await payload.create({

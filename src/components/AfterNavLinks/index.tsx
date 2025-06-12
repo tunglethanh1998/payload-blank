@@ -6,9 +6,10 @@ const sidebarGroups = [
   {
     label: 'Collections',
     links: [
+      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
       { label: 'Users', href: ROUTE_NAVIGATE.USERS },
       { label: 'News', href: ROUTE_NAVIGATE.NEWS },
-      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
+      { label: 'Talent And Reporter', href: ROUTE_NAVIGATE.TALENT_REPORTER },
     ],
   },
   {
@@ -40,7 +41,7 @@ const AfterNavLinksComponent = () => {
           <div>
             <div className="nav-group__content">
               {links.map((link) => (
-                <Link key={link.label} className="nav__link" href={link.href}>
+                <Link key={link.href} className="nav__link" href={link.href}>
                   <span className="nav__link-label">{link.label}</span>
                 </Link>
               ))}

@@ -12,9 +12,10 @@ export enum ROUTE_CONFIG {
 // Apply when navigate
 export enum ROUTE_NAVIGATE {
   // Collections
+  MEDIA = '/admin/collections/media',
+  TALENT_REPORTER = '/admin/collections/talent-reporter',
   USERS = '/admin/collections/users',
   NEWS = '/admin/collections/news',
-  MEDIA = '/admin/collections/media',
 
   // Globals
   HEADER = '/admin/globals/header',
