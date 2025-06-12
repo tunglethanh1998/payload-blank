@@ -1,4 +1,5 @@
 import { default as default_aa936f6d4bfcfa210342637718f4c629 } from '@/components/AfterNavLinks'
+import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 import { default as default_ad44889f58df4e99210146c51158a6ba } from '@/components/Pages/RaceList'
 import { default as default_d5a1575951a32156bf5f24180b347a19 } from '@/components/Pages/RaceSettings'
 import { default as default_0bbbc96747a3f698ac75221e815b383d } from '@/components/Pages/RaceInfo'
@@ -9,6 +10,7 @@ import { default as default_6e91e31df0a843e0ef25f9e086078157 } from '@/component
 
 export const importMap = {
   "@/components/AfterNavLinks#default": default_aa936f6d4bfcfa210342637718f4c629,
+  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
   "@/components/Pages/RaceList#default": default_ad44889f58df4e99210146c51158a6ba,
   "@/components/Pages/RaceSettings#default": default_d5a1575951a32156bf5f24180b347a19,
   "@/components/Pages/RaceInfo#default": default_0bbbc96747a3f698ac75221e815b383d,

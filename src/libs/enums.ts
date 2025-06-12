@@ -12,9 +12,9 @@ export enum ROUTE_CONFIG {
 // Apply when navigate
 export enum ROUTE_NAVIGATE {
   // Collections
-  MEDIA = '/admin/collections/media?limit=10',
-  POSTS = '/admin/collections/posts?limit=10',
-  USERS = '/admin/collections/users?limit=10',
+  USERS = '/admin/collections/users',
+  NEWS = '/admin/collections/news',
+  MEDIA = '/admin/collections/media',
 
   // Globals
   HEADER = '/admin/globals/header',
@@ -28,4 +28,8 @@ export enum ROUTE_NAVIGATE {
   PREDICTION_TARGET_ADMIN = '/admin/prediction-target-admin',
   PREDICTION_DETAIL = '/admin/prediction-detail',
   EDIT_PREDICTION_DETAIL = '/admin/edit-prediction-detail',
+}
+
+export enum S3_PREFIX {
+  PUBLIC_ASSETS = 'public-assets',
 }

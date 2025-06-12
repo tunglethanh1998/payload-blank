@@ -6,9 +6,9 @@ const sidebarGroups = [
   {
     label: 'Collections',
     links: [
-      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
-      { label: 'Posts', href: ROUTE_NAVIGATE.POSTS },
       { label: 'Users', href: ROUTE_NAVIGATE.USERS },
+      { label: 'News', href: ROUTE_NAVIGATE.NEWS },
+      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
     ],
   },
   {

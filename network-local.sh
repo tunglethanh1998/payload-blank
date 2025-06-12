@@ -2,7 +2,7 @@
 
 # Define variables
 NETWORK_NAME="payload-network"
-POSTGRES_CONTAINER="payload-db" # 👈 Your actual Postgres container name
+POSTGRES_CONTAINER="postgres" # 👈 Your actual Postgres container name
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="postgres"
 POSTGRES_DB="payload" # 👈 Match your running container
