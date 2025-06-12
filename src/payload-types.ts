@@ -143,6 +143,8 @@ export interface Media {
  */
 export interface User {
   id: number;
+  username: string;
+  role: 'system_administrator' | 'predictor';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -292,6 +294,8 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  username?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
