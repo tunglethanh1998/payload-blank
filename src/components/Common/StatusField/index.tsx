@@ -2,7 +2,15 @@ import { Button } from '@payloadcms/ui'
 import { SquarePen } from 'lucide-react'
 import React from 'react'
 
-const StatusField = ({ name, status }: { name?: string; status: string }) => {
+const StatusField = ({
+  name,
+  status,
+  onEdit,
+}: {
+  name?: string
+  status: string
+  onEdit: () => void
+}) => {
   const getStatusButtonColor = (status: string) => {
     switch (status) {
       case '未入力':
@@ -26,7 +34,10 @@ const StatusField = ({ name, status }: { name?: string; status: string }) => {
         >
           {status}
         </div>
-        <Button className="no-underline bg-[#18BC9C] px-1.5 py-0 rounded m-0 items-center">
+        <Button
+          onClick={onEdit}
+          className="no-underline bg-[#18BC9C] px-1.5 py-0 rounded m-0 items-center"
+        >
           <SquarePen size={14} color="white" />
         </Button>
       </div>

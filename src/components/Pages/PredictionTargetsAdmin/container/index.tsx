@@ -1,11 +1,15 @@
 'use client'
 
 import StatusField from '@/components/Common/StatusField'
+import { ROUTE_NAVIGATE } from '@/libs/enums'
 import { renderCells } from '@/libs/utils'
 import { Pagination, Table } from '@payloadcms/ui'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 export const PredictionTargetsAdminContainer = () => {
+  const router = useRouter()
+
   return (
     <div className="align-middle">
       <Table
@@ -35,7 +39,11 @@ export const PredictionTargetsAdminContainer = () => {
             field: { name: 'talent1', type: 'text' },
             Heading: <div>タレント 1</div>,
             renderedCells: renderCells(races, (item) => (
-              <StatusField name={item.talent1.name} status={item.talent1.status} />
+              <StatusField
+                onEdit={() => router.push(ROUTE_NAVIGATE.PREDICTION_DETAIL)}
+                name={item.talent1.name}
+                status={item.talent1.status}
+              />
             )),
           },
           {
@@ -44,7 +52,11 @@ export const PredictionTargetsAdminContainer = () => {
             field: { name: 'talent2', type: 'text' },
             Heading: <div>タレント 1</div>,
             renderedCells: renderCells(races, (item) => (
-              <StatusField name={item.talent2.name} status={item.talent2.status} />
+              <StatusField
+                onEdit={() => router.push(ROUTE_NAVIGATE.PREDICTION_DETAIL)}
+                name={item.talent2.name}
+                status={item.talent2.status}
+              />
             )),
           },
           {
@@ -53,7 +65,11 @@ export const PredictionTargetsAdminContainer = () => {
             field: { name: 'reporter1', type: 'text' },
             Heading: <div>タスポーツ紙 1</div>,
             renderedCells: renderCells(races, (item) => (
-              <StatusField name={item.reporter1.name} status={item.reporter1.status} />
+              <StatusField
+                onEdit={() => router.push(ROUTE_NAVIGATE.PREDICTION_DETAIL)}
+                name={item.reporter1.name}
+                status={item.reporter1.status}
+              />
             )),
           },
           {
@@ -62,7 +78,11 @@ export const PredictionTargetsAdminContainer = () => {
             field: { name: 'reporter2', type: 'text' },
             Heading: <div>タスポーツ紙 2</div>,
             renderedCells: renderCells(races, (item) => (
-              <StatusField name={item.reporter2.name} status={item.reporter2.status} />
+              <StatusField
+                onEdit={() => router.push(ROUTE_NAVIGATE.PREDICTION_DETAIL)}
+                name={item.reporter2.name}
+                status={item.reporter2.status}
+              />
             )),
           },
         ]}

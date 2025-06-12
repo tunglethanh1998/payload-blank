@@ -6,9 +6,9 @@ const sidebarGroups = [
   {
     label: 'Collections',
     links: [
-      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
-      { label: 'Posts', href: ROUTE_NAVIGATE.POSTS },
       { label: 'Users', href: ROUTE_NAVIGATE.USERS },
+      { label: 'News', href: ROUTE_NAVIGATE.NEWS },
+      { label: 'Media', href: ROUTE_NAVIGATE.MEDIA },
     ],
   },
   {
@@ -24,6 +24,7 @@ const sidebarGroups = [
       { label: 'Race List', href: ROUTE_NAVIGATE.RACE_LIST },
       { label: 'Prediction Targets', href: ROUTE_NAVIGATE.PREDICTION_TARGET },
       { label: 'Prediction Targets for Admin', href: ROUTE_NAVIGATE.PREDICTION_TARGET_ADMIN },
+      { label: 'Prediction Detail', href: ROUTE_NAVIGATE.PREDICTION_DETAIL },
     ],
   },
 ]

@@ -5,14 +5,16 @@ export enum ROUTE_CONFIG {
   RACE_INFO = '/race-list/race-info',
   PREDICTION_TARGET = '/prediction-target',
   PREDICTION_TARGET_ADMIN = '/prediction-target-admin',
+  PREDICTION_DETAIL = '/prediction-detail',
+  EDIT_PREDICTION_DETAIL = '/edit-prediction-detail',
 }
 
 // Apply when navigate
 export enum ROUTE_NAVIGATE {
   // Collections
-  MEDIA = '/admin/collections/media?limit=10',
-  POSTS = '/admin/collections/posts?limit=10',
-  USERS = '/admin/collections/users?limit=10',
+  USERS = '/admin/collections/users',
+  NEWS = '/admin/collections/news',
+  MEDIA = '/admin/collections/media',
 
   // Globals
   HEADER = '/admin/globals/header',
@@ -24,4 +26,10 @@ export enum ROUTE_NAVIGATE {
   RACE_INFO = '/admin/race-list/race-info',
   PREDICTION_TARGET = '/admin/prediction-target',
   PREDICTION_TARGET_ADMIN = '/admin/prediction-target-admin',
+  PREDICTION_DETAIL = '/admin/prediction-detail',
+  EDIT_PREDICTION_DETAIL = '/admin/edit-prediction-detail',
+}
+
+export enum S3_PREFIX {
+  PUBLIC_ASSETS = 'public-assets',
 }
