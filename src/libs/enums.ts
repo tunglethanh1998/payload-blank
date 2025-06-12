@@ -29,3 +29,7 @@ export enum ROUTE_NAVIGATE {
   PREDICTION_DETAIL = '/admin/prediction-detail',
   EDIT_PREDICTION_DETAIL = '/admin/edit-prediction-detail',
 }
+
+export enum S3_PREFIX {
+  PUBLIC_ASSETS = 'public-assets',
+}

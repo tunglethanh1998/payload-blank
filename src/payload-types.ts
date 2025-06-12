@@ -144,7 +144,6 @@ export interface News {
   Url?: string | null;
   content?: string | null;
   media?: (number | null) | Media;
-  new?: boolean | null;
   externalLink?: boolean | null;
   updatedAt: string;
   createdAt: string;
@@ -156,6 +155,7 @@ export interface News {
 export interface Media {
   id: number;
   alt: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -255,7 +255,6 @@ export interface NewsSelect<T extends boolean = true> {
   Url?: T;
   content?: T;
   media?: T;
-  new?: T;
   externalLink?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -266,6 +265,7 @@ export interface NewsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

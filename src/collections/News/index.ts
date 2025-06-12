@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload'
 
+// New Tag will be display 7 day from publish day
 const News: CollectionConfig = {
   slug: 'news',
   access: {
@@ -44,23 +45,11 @@ const News: CollectionConfig = {
     { name: 'content', type: 'textarea' },
     { name: 'media', type: 'upload', relationTo: 'media' },
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'new',
-          type: 'checkbox',
-          admin: {
-            width: '15%',
-          },
-        },
-        {
-          name: 'externalLink',
-          type: 'checkbox',
-          admin: {
-            width: '15%',
-          },
-        },
-      ],
+      name: 'externalLink',
+      type: 'checkbox',
+      admin: {
+        width: '20%',
+      },
     },
   ],
   timestamps: true,

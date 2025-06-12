@@ -6,7 +6,8 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { ROUTE_CONFIG } from './libs/enums'
+import { ROUTE_CONFIG, S3_PREFIX } from './libs/enums'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 // Collections
 import { Users } from './collections/Users'
@@ -60,6 +61,15 @@ export default buildConfig({
   },
   collections: [Users, News, Media],
   globals: [],
+  // onInit: async (payload) => {
+  // await payload.create({
+  //   collection: 'users',
+  //   data: {
+  //     email: 'thanhtung1998@gmail.com',
+  //     password: '123123dAA@',
+  //   },
+  // })
+  // },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -73,6 +83,23 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    s3Storage({
+      bucket: process.env.AWS_S3_BUCKET_NAME || '',
+      config: {
+        region: process.env.AWS_S3_BUCKET_REGION,
+        credentials: {
+          accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID || '',
+          secretAccessKey: process.env.AWS_S3_SECRET_ACCESS_KEY || '',
+        },
+      },
+      collections: {
+        media: {
+          prefix: S3_PREFIX.PUBLIC_ASSETS,
+          generateFileURL: async ({ filename }) => {
+            return `${process.env.AWS_CLOUDFRONT_PREFIX}/${S3_PREFIX.PUBLIC_ASSETS}/${filename}`
+          },
+        },
+      },
+    }),
   ],
 })
