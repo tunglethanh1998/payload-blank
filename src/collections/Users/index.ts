@@ -5,9 +5,33 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'email',
   },
-  auth: true,
+  auth: true, // Payload auto handles password field.
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: 'username',
+      label: '名前',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'email',
+      label: '現在のID',
+      type: 'email',
+      required: true,
+      unique: true,
+    },
+    {
+      name: 'role',
+      label: '権限',
+      type: 'select',
+      required: true,
+      options: [
+        { label: 'システム管理者', value: 'system_administrator' },
+        { label: '予想者', value: 'predictor' },
+      ],
+      admin: {
+        width: '50%',
+      },
+    },
   ],
 }
