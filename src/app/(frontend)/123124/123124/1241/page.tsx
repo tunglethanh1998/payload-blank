@@ -31,7 +31,7 @@ const RenewalInProgressPage = () => {
           alt="サイトリニューアル中！ 日頃より予想NAVIをご愛顧いただき、誠にありがとうございます！便利で快適なサービスをお届けするため、2025年4月1日より本サイトリニューアルを実施いたします。リニューアル後の便利で快適なサービスを楽しみにお待ちいただけますと幸いです。今後ともどうぞよろしくお願いいたします！"
           width={800}
           height={800}
-          className="w-[90%] inline-block"
+          className="w-[90%] h-auto inline-block"
           priority
         />
       </h1>
